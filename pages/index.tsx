@@ -74,6 +74,7 @@ const namestyle = {
   'font-size': 64,
   'font-weight': 'bold',
   'text-align': 'left',
+  'white-space': 'nowrap',
   paddingTop: 16,
 };
 
@@ -118,7 +119,7 @@ export default function Home() {
           <span><img src={"/mmKreutzef.png"} alt="えむくろ" style={iconstyle} width={128} height={128} /></span>
 
           <div >
-            <p style={namestyle}><nobr>えむくろ</nobr></p>
+            <p style={namestyle}>えむくろ</p>
             <p style={nameEngstyle}>mmKreutzef</p>
           </div>
         </div>
