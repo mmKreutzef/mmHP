@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { imageLoader } from '@/lib/imageLoader';
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import { getWindowSize } from "@/hooks/getWindowSize";
+// import { getWindowSize } from "@/hooks/getWindowSize";
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -45,7 +46,7 @@ function imglist() {
   let j = ""
   for (let i = 0; i < artlist.length; ++i) {
     j = '/arts/' + artlist[i];
-    tmp.push(<a href={j} target="_blank"><Image leyout="Intrinsic" src={j} style={artstyle} width={300} height={200} /></a>)
+    tmp.push(<a href={j} target="_blank"><img src={j} style={artstyle} width={300} height={200} /></a>)
   }
   return (
     tmp
@@ -75,23 +76,24 @@ const namestyle = {
   'text-align': 'left',
   paddingTop: 16,
 };
-const name_engstyle = {
-  'font-size': 32,
+
+const nameEngstyle = {
+  paddingTop: 0,
+  'font-size': 32
 };
 
-const footer = {
-  position: 'fixed !important',
-  position: 'absolute',
+const footersty = {
+  padding: 10,
+  marginTop: 16,
+  paddingTop: 16,
+  position: "fixed !important" as "fixed !important",
   bottom: 0,
   left: 0,
   width: '100%',
   height: 64,
   'border-top': 'solid',
   'border-color': 'gray',
-  padding: 10,
   'text-align': 'center',
-  marginTop: 16,
-  paddingTop: 16
 }
 
 const copyright_style = {
@@ -102,7 +104,7 @@ const copyright_style = {
 
 
 export default function Home() {
-  const { height, width } = getWindowSize();
+  // const { height, width } = getWindowSize();
   return (
     <>
       <Head>
@@ -113,20 +115,20 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <div style={nameblock}>
-          <span><Image src={"/mmKreutzef.png"} alt="えむくろ" style={iconstyle} width={128} height={128} /></span>
+          <span><img src={"/mmKreutzef.png"} alt="えむくろ" style={iconstyle} width={128} height={128} /></span>
 
-          <div style={namestyle}>
-            <p>えむくろ</p>
-            <p style={name_engstyle}>mmKreutzef</p>
+          <div >
+            <p style={namestyle}><nobr>えむくろ</nobr></p>
+            <p style={nameEngstyle}>mmKreutzef</p>
           </div>
         </div>
         <div style={imgblock}>{imglist()}</div>
 
-        <div style={footer}>
+        <div className={`${styles.footersty} `}>
           <ul>
             {snsList()}
           </ul>
-          <p style={copyright_style}>Copyright 2024 mmKreutzef All Rights Reserved.</p>
+          <div style={copyright_style}>Copyright 2024 mmKreutzef All Rights Reserved.</div>
         </div>
       </main>
     </>

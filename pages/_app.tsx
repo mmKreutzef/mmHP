@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Script from "next/script";
-import * as gtag from "src/lib/gtag";
+import * as gtag from "@/lib/gtag";
 
 export default function App({ Component, pageProps }: AppProps) {
   <>

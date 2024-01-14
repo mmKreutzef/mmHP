@@ -17,6 +17,21 @@
   margin-left: 20px;
 }
 
+.footersty {
+  padding: 10;
+  margin-top: 16;
+  padding-top: 16;
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 64;
+  border-top: solid;
+  border-color: gray;
+  text-align: center;
+  background-color: #35312e;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
